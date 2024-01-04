@@ -40,6 +40,7 @@ body{
     background-position: 27%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     
 }
 
@@ -151,7 +152,7 @@ fieldset > div{
 }
 
 #submit-button{
-    margin-top: 1rem;
+    margin-top: 0.9rem;
     width: 12rem;
     height: 5rem;
     font-size: 1.5rem;
@@ -164,14 +165,14 @@ fieldset > div{
     font-size: 1.2rem;
 }
 
-input:focus:valid {
+.success{
     background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat;
     background-color: lightgreen;
     background-position: 95% 50%;
     background-size: 25px;
 }
 
-input:focus:invalid {
+.error {
     background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat;
     background-color: lightsalmon;
     background-position: 95% 50%;
@@ -182,27 +183,55 @@ input:invalid{
     border-color: red;
 }
 
-@media screen and (max-width: 500px) {
+.mobile-btm-nav {
+    text-decoration: none;
+    display: none;
+}
+.mobile-btm-nav > img {
+    transform: scale(.3) rotateZ(180deg);
+}
+
+@media screen and (max-width: 600px) {
     .content{
         flex-flow: column;
         height: auto;
         min-width: 250px;
     }
+
     .left-side{
         width: 100%;
         background-size: max(100vw, 250px) 100vh;
         min-width: 250px;
         min-height: 100vh;
     }
+
     .right-side{
         min-height: 100vh;
     }
+
+    .mobile-btm-nav {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        place-self: center;
+        animation: float 1s cubic-bezier(0.59, 0.575, 0.565, 1) infinite;
+    }
   }
 
-  @media screen and (max-width: 1000px) {
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@media screen and (max-width: 1000px) {
     fieldset > div{
         flex-flow: row wrap;
     }
+
     fieldset{
         gap: 0;
     }
