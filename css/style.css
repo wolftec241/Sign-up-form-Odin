@@ -34,11 +34,9 @@ body{
     background-image: url('../imgs/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: max(100vh, 940px);
     width:50%;
     min-width: 250px;
-    min-height: 100vh;
-    -webkit-height: 100vh;
     background-position: 27%;
     display: flex;
     flex-direction: column;
@@ -71,11 +69,11 @@ body{
     flex: 5; /* Adjust the flex value as needed */
     background-color: var(--bg-main-color);
     height: 100vh;
-    min-height: 100vh;
     /* Add additional styles for the right side as needed */
     display: flex;
     flex-direction: column;
-    
+    justify-content:center ;
+    gap: 1rem;
 }
 
 .text-section{
@@ -83,6 +81,7 @@ body{
     margin-left: var(--left-space);
     margin-bottom: 8px;
     max-width: 60%;
+    font-weight: bolder;
 }
 
 .text-section > p:first-child{
@@ -97,7 +96,7 @@ body{
 .form-section{
     background-color: var(--bg-secondary-color);
     box-shadow: 0 5px 5px 6px rgba(0, 0, 0, 0.1);
-    min-height: 25vh;
+    height: 20rem;
 }
 
 fieldset{
@@ -105,6 +104,7 @@ fieldset{
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
 legend{
@@ -115,7 +115,7 @@ legend{
 
 fieldset > div{
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: space-evenly;
 }
 
@@ -124,7 +124,7 @@ fieldset > div{
 .form{
     display: flex;
     flex-direction: column;
-    font-size: 1.2rem;
+    font-size: 1rem;
     width: 250px;
     margin: 0.4rem;
     justify-content: left;
@@ -138,6 +138,12 @@ fieldset > div{
     padding: 4px 8px;
 }
 
+.form > span{
+  font-family: customFontBold;
+  font-size: .8rem;
+  color: rgb(255, 69, 100);
+}
+
 
 .submit{
     display: flex;
@@ -145,7 +151,7 @@ fieldset > div{
 }
 
 #submit-button{
-    margin-block: 2rem;
+    margin-top: 1rem;
     width: 12rem;
     height: 5rem;
     font-size: 1.5rem;
@@ -158,6 +164,24 @@ fieldset > div{
     font-size: 1.2rem;
 }
 
+input:focus:valid {
+    background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat;
+    background-color: lightgreen;
+    background-position: 95% 50%;
+    background-size: 25px;
+}
+
+input:focus:invalid {
+    background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat;
+    background-color: lightsalmon;
+    background-position: 95% 50%;
+    background-size: 25px;
+  }
+
+input:invalid{
+    border-color: red;
+}
+
 @media screen and (max-width: 500px) {
     .content{
         flex-flow: column;
@@ -168,5 +192,22 @@ fieldset > div{
         width: 100%;
         background-size: max(100vw, 250px) 100vh;
         min-width: 250px;
+        min-height: 100vh;
+    }
+    .right-side{
+        min-height: 100vh;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    fieldset > div{
+        flex-flow: row wrap;
+    }
+    fieldset{
+        gap: 0;
+    }
+
+    .form-section{
+        height: 32rem;
     }
   }
